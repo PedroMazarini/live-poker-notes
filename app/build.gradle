@@ -1,0 +1,71 @@
+import dependencies.dependencies.*
+import dependencies.Versions
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk Versions.Build.compilesdk
+
+    defaultConfig {
+        applicationId Versions.Application.id
+        minSdk Versions.Build.minsdk
+        targetSdk Versions.Build.targetsdk
+        versionCode Versions.Application.version_code
+        versionName Versions.Application.version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion Versions.compose_version
+        kotlinCompilerVersion '1.5.21'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation Dependencies.ktx
+    implementation SupportDependencies.appcompat
+    implementation SupportDependencies.material_design
+    implementation Dependencies.compose_ui
+    implementation Dependencies.compose_material
+    implementation Dependencies.compose_ui_preview
+    implementation Dependencies.lifecycle_runtime
+    implementation Dependencies.activity_compose
+
+    testImplementation TestDependencies.junit4
+    androidTestImplementation AndroidTestDependencies.test_ext
+    androidTestImplementation AndroidTestDependencies.espresso_core
+    androidTestImplementation AndroidTestDependencies.espresso_contrib
+
+    androidTestImplementation AndroidTestDependencies.compose_ui_test
+    debugImplementation AndroidTestDependencies.compose_ui_tooling
+}
