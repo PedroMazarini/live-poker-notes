@@ -15,6 +15,8 @@ object Dependencies {
     val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime:${Versions.lifecycle_version}"
     val lifecycle_coroutines = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle_version}"
     val activity_compose = "androidx.activity:activity-compose:${Versions.activity_compose}"
+    val hilt_android = "com.google.dagger:hilt-android:${Versions.dagger_hilt}"
+    val hilt_compiler = "com.google.dagger:hilt-compiler:${Versions.dagger_hilt}"
     val room_runtime = "androidx.room:room-runtime:${Versions.room}"
     val room_ktx = "androidx.room:room-ktx:${Versions.room}"
 

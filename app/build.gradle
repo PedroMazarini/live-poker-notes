@@ -4,6 +4,9 @@ import dependencies.Versions
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -60,6 +63,9 @@ dependencies {
     implementation Dependencies.compose_ui_preview
     implementation Dependencies.lifecycle_runtime
     implementation Dependencies.activity_compose
+
+    implementation Dependencies.hilt_android
+    kapt Dependencies.hilt_compiler
 
     testImplementation TestDependencies.junit4
     androidTestImplementation AndroidTestDependencies.test_ext

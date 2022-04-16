@@ -9,10 +9,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.livepokernotes.ui.theme.LivePokerNotesTheme
+import java.util.*
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val a = Date()
+        a.toString()
         setContent {
             LivePokerNotesTheme {
                 // A surface container using the 'background' color from the theme
