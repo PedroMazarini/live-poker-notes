@@ -2,6 +2,7 @@ package com.livepokernotes.business.data.cache.implementation
 
 import com.livepokernotes.business.data.cache.abstraction.SessionCacheDataSource
 import com.livepokernotes.business.domain.model.Session
+import com.livepokernotes.framework.datasource.cache.abstraction.SessionDaoService
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -2,6 +2,7 @@ package com.livepokernotes.business.data.network.implementation
 
 import com.livepokernotes.business.data.network.abstraction.SessionNetworkDataSource
 import com.livepokernotes.business.domain.model.Session
+import com.livepokernotes.framework.datasource.network.abstraction.SessionFirestoreService
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,6 +24,6 @@ constructor(
     override suspend fun updateSession(primaryKey: String, comment: String)
         = firestoreService.updateSession(primaryKey, comment)
 
-    override suspend fun getAllSessions() = firestoreService.getAllSessions
+    override suspend fun getAllSessions() = firestoreService.getAllSessions()
 
 }

@@ -71,6 +71,16 @@ dependencies {
     implementation Dependencies.kotlin_coroutines_android
     implementation Dependencies.kotlin_coroutines_play_services
 
+    implementation Dependencies.room_runtime
+    implementation Dependencies.room_ktx
+    implementation Dependencies.markdown_processor
+    implementation Dependencies.retrofit
+    implementation Dependencies.retrofit_gson
+    implementation Dependencies.firebase_firestore
+    implementation Dependencies.firebase_auth
+    implementation Dependencies.firebase_analytics
+    implementation Dependencies.firebase_crashlytics
+
     testImplementation TestDependencies.junit4
     androidTestImplementation AndroidTestDependencies.test_ext
     androidTestImplementation AndroidTestDependencies.espresso_core
