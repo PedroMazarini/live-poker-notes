@@ -13,12 +13,13 @@ constructor(
 ){
     fun createSingleSession(
         id: String? = null,
-        comment: String? = null
+        comment: String? = null,
+        created_at: String? = null
     ): Session =
         Session(
             id = id ?: UUID.randomUUID().toString(),
             comment = comment ?: "",
-            created_at = dateUtil.getCurrentDate(),
+            created_at = created_at?: dateUtil.getCurrentDate(),
             updated_at = dateUtil.getCurrentDate()
         )
 

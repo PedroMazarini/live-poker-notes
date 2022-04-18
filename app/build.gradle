@@ -39,6 +39,11 @@ android {
         jvmTarget = '1.8'
         useIR = true
     }
+    testOptions{
+        unitTests.all{
+            useJUnitPlatform()
+        }
+    }
     buildFeatures {
         compose true
     }
@@ -81,7 +86,13 @@ dependencies {
     implementation Dependencies.firebase_analytics
     implementation Dependencies.firebase_crashlytics
 
+    //Tests
+
+    testImplementation TestDependencies.mockk
+    testImplementation TestDependencies.jupiter_api
+    testImplementation TestDependencies.jupiter_params
     testImplementation TestDependencies.junit4
+    testRuntimeOnly TestDependencies.jupiter_engine
     androidTestImplementation AndroidTestDependencies.test_ext
     androidTestImplementation AndroidTestDependencies.espresso_core
     androidTestImplementation AndroidTestDependencies.espresso_contrib
