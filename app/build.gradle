@@ -67,6 +67,10 @@ dependencies {
     implementation Dependencies.hilt_android
     kapt Dependencies.hilt_compiler
 
+    implementation Dependencies.kotlin_coroutines
+    implementation Dependencies.kotlin_coroutines_android
+    implementation Dependencies.kotlin_coroutines_play_services
+
     testImplementation TestDependencies.junit4
     androidTestImplementation AndroidTestDependencies.test_ext
     androidTestImplementation AndroidTestDependencies.espresso_core
