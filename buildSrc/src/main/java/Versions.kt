@@ -13,7 +13,6 @@ object Versions {
         val targetsdk = 31
     }
 
-
     val gradle = "7.0.2"
     val kotlin = "1.5.21"
     val test_ext = "1.1.3"

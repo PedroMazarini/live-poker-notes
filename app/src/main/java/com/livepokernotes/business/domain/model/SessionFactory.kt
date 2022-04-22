@@ -1,6 +1,6 @@
 package com.livepokernotes.business.domain.model
 
-import com.livepokernotes.business.domain.util.DateUtil
+import com.livepokernotes.util.DateUtil
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton

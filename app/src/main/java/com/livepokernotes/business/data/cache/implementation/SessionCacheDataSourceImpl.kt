@@ -33,4 +33,7 @@ constructor(
     override suspend fun searchSessionById(primaryKey: String) =
         sessionDaoService.searchSessionById(primaryKey)
 
+    override suspend fun getNumSessions() =
+        sessionDaoService.getNumSessions()
+
 }

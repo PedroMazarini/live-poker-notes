@@ -28,4 +28,5 @@ object Dependencies {
     val firebase_analytics = "com.google.firebase:firebase-analytics-ktx:${Versions.firebase_analytics}"
     val firebase_crashlytics = "com.google.firebase:firebase-crashlytics:${Versions.firebase_crashlytics}"
     val markdown_processor = "com.yydcdut:markdown-processor:${Versions.markdown_processor}"
+    val room_compiler = "androidx.room:room-compiler:${Versions.room}"
 }

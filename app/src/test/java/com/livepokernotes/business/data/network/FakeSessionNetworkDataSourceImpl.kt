@@ -16,6 +16,10 @@ constructor(
         sessionsData.remove(primaryKey)
     }
 
+    override suspend fun searchSessionById(primaryKey: String): Session?
+        = sessionsData[primaryKey]
+
+
     override suspend fun deleteSessions(sessionList: List<Session>) {
         TODO("Not yet implemented")
     }

@@ -3,7 +3,8 @@ package com.livepokernotes.business.data.cache
 import com.livepokernotes.business.data.cache.abstraction.SessionCacheDataSource
 import com.livepokernotes.business.domain.model.Session
 import com.livepokernotes.business.domain.model.SessionFactory
-import com.livepokernotes.business.domain.util.DateUtil
+import com.livepokernotes.util.DateUtil
+import com.livepokernotes.framework.datasource.database.SESSION_PAGINATION_PAGE_SIZE
 
 const val FORCE_DELETE_SESSION_EXCEPTION = "FORCE_DELETE_SESSION_EXCEPTION"
 const val FORCE_UPDATE_SESSION_EXCEPTION = "FORCE_UPDATE_SESSION_EXCEPTION"
@@ -22,7 +23,7 @@ constructor(
             throw Exception("Something went wrong inserting the session.")
         if(session.id.equals(FORCE_GENERAL_FAILURE))
             return -1 // failure
-        sessionsData.put(session.id, session)
+        sessionsData[session.id] = session
         return 1 //success
     }
 
@@ -53,16 +54,29 @@ constructor(
         }?: -1 // failed, nothing to update
     }
 
+    override suspend fun getNumSessions() = sessionsData.size
+
     override suspend fun searchSessions(
         query: String,
         filterAndOrder: String,
         page: Int
     ): List<Session> {
-        TODO("Not yet implemented")
+        if(query.equals(FORCE_SEARCH_SESSIONS_EXCEPTION)){
+            throw Exception("Something went searching the cache for sessions.")
+        }
+        val results: ArrayList<Session> = ArrayList()
+        for(note in sessionsData.values){
+            if(note.comment.contains(query)){
+                results.add(note)
+            }
+            if(results.size > (page * SESSION_PAGINATION_PAGE_SIZE)){
+                break
+            }
+        }
+        return results
     }
 
-    override suspend fun searchSessionById(primaryKey: String): Session? {
-        TODO("Not yet implemented")
-    }
+    override suspend fun searchSessionById(primaryKey: String): Session? =
+        sessionsData[primaryKey]
 
 }

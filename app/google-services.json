@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "760642115909",
+    "project_id": "live-poker-notes-b0806",
+    "storage_bucket": "live-poker-notes-b0806.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760642115909:android:b89acfa0ce3d40779a862c",
+        "android_client_info": {
+          "package_name": "com.livepokernotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760642115909-gtbv3uggk7mkkligudd087bgadopgimi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4NyJaIOSAYyt6_pApD3prTPCTU1Qf7Js"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760642115909-gtbv3uggk7mkkligudd087bgadopgimi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

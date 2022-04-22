@@ -13,10 +13,13 @@ constructor(
     private val firestoreService: SessionFirestoreService
 ): SessionNetworkDataSource {
     override suspend fun insertSession(session: Session)
-        = firestoreService.insertSession(session)
+        = firestoreService.insertOrUpdateSession(session)
 
     override suspend fun deleteSession(primaryKey: String)
         = firestoreService.deleteSession(primaryKey)
+
+    override suspend fun searchSessionById(primaryKey: String)
+        = firestoreService.searchSessionById(primaryKey)
 
     override suspend fun deleteSessions(sessionList: List<Session>)
         = firestoreService.deleteSessions(sessionList)

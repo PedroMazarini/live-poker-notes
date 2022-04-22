@@ -7,6 +7,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -51,6 +52,11 @@ android {
         kotlinCompilerExtensionVersion Versions.compose_version
         kotlinCompilerVersion '1.5.21'
     }
+
+    sourceSets{
+        test.resources.srcDirs += "src/test/res"
+    }
+
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
@@ -71,6 +77,7 @@ dependencies {
 
     implementation Dependencies.hilt_android
     kapt Dependencies.hilt_compiler
+    kapt Dependencies.room_compiler
 
     implementation Dependencies.kotlin_coroutines
     implementation Dependencies.kotlin_coroutines_android
@@ -89,6 +96,7 @@ dependencies {
     //Tests
 
     testImplementation TestDependencies.mockk
+    testImplementation Dependencies.retrofit_gson
     testImplementation TestDependencies.jupiter_api
     testImplementation TestDependencies.jupiter_params
     testImplementation TestDependencies.junit4
@@ -99,4 +107,7 @@ dependencies {
 
     androidTestImplementation AndroidTestDependencies.compose_ui_test
     debugImplementation AndroidTestDependencies.compose_ui_tooling
+
+    //to fix stupid error of duplicate classes
+    implementation 'com.google.guava:guava:27.0.1-android'
 }

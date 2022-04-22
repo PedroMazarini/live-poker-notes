@@ -22,8 +22,8 @@ class InsertNewSession(
     fun insertNewSession(
         id: String? = null,
         stateEvent: StateEvent
-    ): Flow<DataState<SessionListViewState>> = flow {
-        val newSession = sessionFactory.createSingleSession()
+    ): Flow<DataState<SessionListViewState>?> = flow {
+        val newSession = sessionFactory.createSingleSession(id = id)
         val cacheResult = safeCacheCall(IO) {
             sessionCacheDataSource.insertSession(newSession)
         }

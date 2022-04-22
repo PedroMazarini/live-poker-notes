@@ -8,6 +8,7 @@ interface SessionCacheDataSource {
     suspend fun deleteSession(primaryKey: String): Int
     suspend fun deleteSessions(sessionList: List<Session>): Int
     suspend fun updateSession(primaryKey: String, comment: String): Int
+    suspend fun getNumSessions(): Int
     suspend fun searchSessions(
         query: String,
         filterAndOrder: String,

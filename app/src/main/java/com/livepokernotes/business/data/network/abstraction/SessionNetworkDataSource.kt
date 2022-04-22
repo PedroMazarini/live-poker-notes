@@ -6,6 +6,7 @@ interface SessionNetworkDataSource {
 
     suspend fun insertSession(session: Session)
     suspend fun deleteSession(primaryKey: String)
+    suspend fun searchSessionById(primaryKey: String): Session?
     suspend fun deleteSessions(sessionList: List<Session>)
     suspend fun updateSession(primaryKey: String, comment: String): Int
     suspend fun getAllSessions(): List<Session>

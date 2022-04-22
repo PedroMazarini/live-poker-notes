@@ -13,4 +13,5 @@ interface SessionDaoService {
         page: Int
     ): List<Session>
     suspend fun searchSessionById(primaryKey: String): Session?
+    suspend fun getNumSessions(): Int
 }
